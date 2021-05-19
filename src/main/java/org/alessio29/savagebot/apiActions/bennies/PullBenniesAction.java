@@ -49,10 +49,10 @@ public class PullBenniesAction {
             newBennies.entrySet().stream().forEach(entry -> character.addColoredBennies(entry));
             String info = StringUtils.join(
                     newBennies.entrySet().stream().map(p -> p.getValue().toString().toLowerCase() + " " + p.getKey()).
-                            collect(Collectors.toList()), ",");
+                            collect(Collectors.toList()), ", ");
             pulled.add(character.getName() + " pulled " + info + " benny(ies)");
             Characters.storeCharacter(message.getGuildId(), message.getChannelId(), character);
         }
-        return new CommandExecutionResult("Puled bennies for character(s): " + StringUtils.join(pulled, ", "), args.length + 1);
+        return new CommandExecutionResult("Pulled bennies for character(s): " + StringUtils.join(pulled, ", "), args.length + 1);
     }
 }
